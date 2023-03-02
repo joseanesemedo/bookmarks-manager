@@ -15,15 +15,21 @@
             background-color: transparent;
             border: 2px dashed #00a19d;
             color: var(--text_color);
-
-            &:hover {
-              background-color: rgba($color: #00a19d, $alpha: 0.6);
-            }
           }
 
           &__tag {
             background-color: #ffa6d5;
           }
+        }
+      }
+
+      .tag__form__container {
+        background-color: green;
+        padding: 1rem;
+
+        input {
+          font-size: 1rem;
+          padding: 0.5rem;
         }
       }
     }
