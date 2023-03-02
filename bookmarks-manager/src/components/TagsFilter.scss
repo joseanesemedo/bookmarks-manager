@@ -23,12 +23,20 @@ aside {
     }
 
     .tag__form__container {
-      background-color: green;
+      background-color: var(--form_container_bg);
       padding: 1rem;
+      margin-bottom: 1rem;
+      border-radius: 5px;
 
       input {
         font-size: 1rem;
         padding: 0.5rem;
+      }
+
+      .btn {
+        font-size: 1rem;
+        padding: 0.5rem;
+        background-color: #00a19d;
       }
     }
   }

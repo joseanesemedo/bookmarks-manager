@@ -1,24 +1,10 @@
 import React, { useState } from "react";
 import "./TagsFilter.scss";
-import supabase from "../supabase";
+
+import NewTagForm from "./NewTagForm";
 
 const TagsFilter = ({ session, tags, setTags }) => {
-  const [tagName, setTagName] = useState("");
   const [showForm, setShowForm] = useState(false);
-
-  async function handleAddTag(e) {
-    e.preventDefault();
-    console.log(tagName);
-
-    const { data: newTag, error } = await supabase
-      .from("tags")
-      .insert([{ name: tagName, uid: session.user.id }])
-      .select();
-
-    if (!error) {
-      setTags((tags) => [newTag[0], ...tags]);
-    }
-  }
 
   return (
     <aside>
@@ -35,24 +21,16 @@ const TagsFilter = ({ session, tags, setTags }) => {
           </button>
         </li>
 
-        {showForm && (
-          <div className="tag__form__container">
-            <form className="tag__form">
-              <input
-                type="text"
-                value={tagName}
-                onChange={(e) => {
-                  setTagName(e.target.value);
-                }}
-              />
-              <button onClick={handleAddTag}>add</button>
-            </form>
-          </div>
-        )}
+        {showForm && <NewTagForm session={session} setTags={setTags} />}
 
         {tags.map((tag) => (
           <li className="category" key={tag.id}>
-            <button className="btn btn__tag">{tag.name}</button>
+            <button
+              className="btn btn__tag"
+              style={{ backgroundColor: tag.color }}
+            >
+              {tag.name}
+            </button>
           </li>
         ))}
       </ul>
