@@ -16,7 +16,7 @@ function App() {
   }, [darkMode]);
 
   return (
-    <>
+    <div className="App">
       <Header setDarkMode={setDarkMode} darkMode={darkMode} />
       <BrowserRouter>
         <Routes>
@@ -31,7 +31,7 @@ function App() {
           ) : null}
         </Routes>
       </BrowserRouter>
-    </>
+    </div>
   );
 }
 export default App;

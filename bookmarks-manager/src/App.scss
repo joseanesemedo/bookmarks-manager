@@ -44,6 +44,9 @@ body {
   background-color: var(--bg);
   color: var(--text_color);
   font-family: "Poppins", sans-serif;
+
+  padding: 2.5rem 3rem;
+  overflow: hidden;
 }
 
 a {
@@ -52,19 +55,6 @@ a {
 
 button {
   cursor: pointer;
-}
-
-.btn {
-  border: none;
-  border-radius: 5px;
-  font-family: inherit;
-  line-height: 1;
-  font-size: 1.5rem;
-  padding: 1rem 0 0.8125rem;
-  color: #fff;
-  // background-color: #8965f8;
-
-  transition: 0.3s;
 }
 
 form {
@@ -109,5 +99,53 @@ form {
     -webkit-text-fill-color: var(--text_color);
     -webkit-box-shadow: 0 0 0px 1000px var(--input_bg) inset;
     transition: background-color 5000s ease-in-out 0s;
+  }
+}
+
+ul {
+  list-style: none;
+}
+
+//========================================================================================================
+
+.btn {
+  border: none;
+  border-radius: 5px;
+  font-family: inherit;
+  line-height: 1;
+  font-size: 1.5rem;
+  padding: 1rem 0 0.8125rem;
+  color: #fff;
+  // background-color: #8965f8;
+  font-family: "Coiny", cursive;
+
+  transition: 0.3s;
+  width: 100%;
+}
+
+.App {
+  max-width: 95rem;
+  margin: 0 auto;
+}
+
+.main {
+  height: 80vh;
+  display: grid;
+  grid-template-columns: 16rem 1fr;
+  gap: 3rem;
+  padding: 2rem;
+
+  @include breakpoint-down(small) {
+    grid-template-columns: 1fr;
+  }
+
+  section {
+    overflow-y: scroll;
+    padding-bottom: 2.5rem;
+    scrollbar-width: none;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
   }
 }

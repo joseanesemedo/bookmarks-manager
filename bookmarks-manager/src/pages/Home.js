@@ -1,11 +1,27 @@
 import React from "react";
+import "./Home.scss";
 
 const Home = ({ session }) => {
   return (
-    <div>
-      <h2>Welcome back, {session.user.user_metadata.username}</h2>
-      Home
-    </div>
+    <main className="main">
+      <aside>
+        <ul>
+          <li className="category">
+            <button className="btn btn__tags">All</button>
+          </li>
+          <li className="category">
+            <button className="btn btn__add__tag">Add tag +</button>
+          </li>
+          <li className="category">
+            <button className="btn btn__tag">All</button>
+          </li>
+          <li className="category">
+            <button className="btn btn__tag">All</button>
+          </li>
+        </ul>
+      </aside>
+      <div>ddd</div>
+    </main>
   );
 };
 

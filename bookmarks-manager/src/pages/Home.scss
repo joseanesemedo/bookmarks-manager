@@ -1,0 +1,35 @@
+.main {
+  aside {
+    ul {
+      .category {
+        margin-bottom: 1rem;
+
+        .btn {
+          border-radius: 5rem;
+
+          &__tags {
+            background-color: #00a19d;
+          }
+
+          &__add__tag {
+            background-color: transparent;
+            border: 2px dashed #00a19d;
+            color: var(--text_color);
+
+            &:hover {
+              background-color: rgba($color: #00a19d, $alpha: 0.6);
+            }
+          }
+
+          &__tag {
+            background-color: #ffa6d5;
+          }
+        }
+      }
+    }
+  }
+
+  div {
+    background-color: plum;
+  }
+}

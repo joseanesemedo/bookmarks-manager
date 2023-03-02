@@ -11,7 +11,7 @@ const Header = ({ darkMode, setDarkMode }) => {
         onClick={() => setDarkMode(!darkMode)}
         size={50}
         sunColor={"#eab308"}
-        moonColor={"#2C2891"}
+        moonColor={"#eab308"}
       />
     </header>
   );
