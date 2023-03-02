@@ -1,6 +1,5 @@
-import React, { useState } from "react";
+import React from "react";
 import "./Home.scss";
-import supabase from "../supabase";
 import TagsFilter from "../components/TagsFilter";
 
 const Home = ({ session }) => {
