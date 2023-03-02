@@ -18,8 +18,8 @@ const SignIn = ({ setSession }) => {
     validateForm();
 
     const { data: user, error } = await supabase.auth.signInWithPassword({
-      email: email,
-      password: password,
+      email,
+      password,
     });
 
     if (!error) {
@@ -32,8 +32,8 @@ const SignIn = ({ setSession }) => {
 
   const validateForm = () => {
     let validation = {};
-    validation.email = email ? "" : "Este campo é obrigatório";
-    validation.password = password ? "" : "Este campo é obrigatório";
+    validation.email = email ? "" : "Provide a valid email address";
+    validation.password = password ? "" : "This field is required";
 
     setErrors({
       ...validation,
@@ -58,7 +58,7 @@ const SignIn = ({ setSession }) => {
             onChange={(e) => setPassword(e.target.value)}
             value={password}
           />
-          <h3 className="input__error">{errors.password && errors.password}</h3>
+          {/* <h3 className="input__error">{errors.password && errors.password}</h3> */}
           <button className="btn">Sign in</button>
         </form>
         {errorMessage ? (

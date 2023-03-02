@@ -2,10 +2,10 @@ import { useEffect, useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import "./App.scss";
-import { DarkModeSwitch } from "react-toggle-dark-mode";
 import SignUp from "./pages/SignUp";
 import Home from "./pages/Home";
 import SignIn from "./pages/SignIn";
+import Header from "./components/Header";
 
 function App() {
   const [darkMode, setDarkMode] = useState(true);
@@ -16,15 +16,8 @@ function App() {
   }, [darkMode]);
 
   return (
-    <div>
-      <DarkModeSwitch
-        checked={darkMode}
-        onClick={() => setDarkMode(!darkMode)}
-        size={50}
-        sunColor={"#eab308"}
-        moonColor={"#fff"}
-      />
-
+    <>
+      <Header setDarkMode={setDarkMode} darkMode={darkMode} />
       <BrowserRouter>
         <Routes>
           <Route exact path={"/signup"} element={<SignUp />} />
@@ -38,7 +31,7 @@ function App() {
           ) : null}
         </Routes>
       </BrowserRouter>
-    </div>
+    </>
   );
 }
 export default App;
