@@ -11,7 +11,6 @@ import supabase from "./supabase";
 function App() {
   const [darkMode, setDarkMode] = useState(true);
   const [session, setSession] = useState(false);
-  const [tags, setTags] = useState([]);
 
   useEffect(() => {
     document.body.classList.toggle("light-mode");
@@ -27,29 +26,6 @@ function App() {
       setSession(data);
     }
   }, []);
-
-  // useEffect(
-  //   function () {
-  //     async function getTags() {
-  //       let query = supabase
-  //         .from("tags")
-  //         .select("*")
-  //         .eq("uid", session.user.id);
-
-  //       const { data: tags, error } = await query;
-
-  //       if (!error) {
-  //         setTags(tags);
-  //         console.log(tags);
-  //       } else {
-  //         alert("There was a problem getting data");
-  //       }
-  //     }
-
-  //     getTags();
-  //   },
-  //   [session]
-  // );
 
   return (
     <div className="App">
