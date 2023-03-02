@@ -30,21 +30,23 @@ const SignIn = () => {
   return (
     <div className="form__container">
       <div className="form__container__wrapper">
-        <h1>Sign in</h1>
+        <h1 className="form__title">Log in</h1>
         <form onSubmit={handleLogin}>
+          <h2 className="input__label">Email</h2>
           <input
             type="text"
             placeholder="Email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
           />
-          <h3>{errors.email && errors.email}</h3>
+          <h3 className="input__error">{errors.email && errors.email}</h3>
+          <h2 className="input__label">Password</h2>
           <PasswordInput
             onChange={(e) => setPassword(e.target.value)}
             value={password}
           />
-          <h3>{errors.password && errors.password}</h3>
-          <button className="">Sign in</button>
+          <h3 className="input__error">{errors.password && errors.password}</h3>
+          <button className="btn">Sign in</button>
         </form>
         {errorMessage ? <span className="">{errorMessage}</span> : null}
         <span>
