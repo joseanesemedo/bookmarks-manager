@@ -28,8 +28,6 @@ const SignIn = ({ setSession }) => {
     } else {
       setErrorMessage(error.message);
     }
-
-    console.log(email, password);
   }
 
   const validateForm = () => {
