@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./TagsFilter.scss";
 import supabase from "../supabase";
 
-const TagsFilter = ({ session }) => {
+const TagsFilter = ({ session, tags, setTags }) => {
   const [tagName, setTagName] = useState("");
   const [showForm, setShowForm] = useState(false);
 
@@ -14,6 +14,10 @@ const TagsFilter = ({ session }) => {
       .from("tags")
       .insert([{ name: tagName, uid: session.user.id }])
       .select();
+
+    if (!error) {
+      setTags((tags) => [newTag[0], ...tags]);
+    }
   }
 
   return (
@@ -46,9 +50,11 @@ const TagsFilter = ({ session }) => {
           </div>
         )}
 
-        <li className="category">
-          <button className="btn btn__tag">All</button>
-        </li>
+        {tags.map((tag) => (
+          <li className="category" key={tag.id}>
+            <button className="btn btn__tag">{tag.name}</button>
+          </li>
+        ))}
       </ul>
     </aside>
   );

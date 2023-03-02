@@ -33,7 +33,7 @@ const Home = ({ session }) => {
 
   return (
     <main className="main">
-      <TagsFilter session={session} />
+      <TagsFilter session={session} tags={tags} setTags={setTags} />
       <div>
         <h2>Welcome back, {session.user.user_metadata.username}</h2>
         <button onClick={handleLogout}>Logout</button>

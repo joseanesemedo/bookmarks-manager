@@ -1,11 +1,13 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import supabase from "../supabase";
 import PasswordInput from "../components/PasswordInput";
 import "./Form.scss";
 
 const SignUp = () => {
+  let navigate = useNavigate();
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [username, setUsername] = useState("");
@@ -28,7 +30,8 @@ const SignUp = () => {
       });
 
       if (!error) {
-        alert("check email for verification link");
+        navigate("/");
+        console.log(data);
       } else {
         setErrorMessage(error.message);
       }
