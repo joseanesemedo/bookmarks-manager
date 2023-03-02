@@ -1,0 +1,26 @@
+@use "../App.scss" as u;
+
+.form__container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+  padding: 1rem;
+  max-width: 100%;
+
+  &__wrapper {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-around;
+
+    width: 500px;
+    max-width: 100%;
+    min-height: 50vh;
+    border-radius: 10px;
+    background-color: var(--form_container_bg);
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 3px 8px;
+    padding: 2rem 4rem;
+  }
+}
