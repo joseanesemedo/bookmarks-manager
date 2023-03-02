@@ -28,7 +28,11 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route exact path={"/signup"} element={<SignUp />} />
-          <Route exact path={"/"} element={<SignIn />} />
+          <Route
+            exact
+            path={"/"}
+            element={<SignIn setSession={setSession} />}
+          />
           {session ? (
             <Route exact path={"/home"} element={<Home session={session} />} />
           ) : null}

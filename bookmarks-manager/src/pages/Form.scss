@@ -50,15 +50,15 @@
         color: #8965f8;
       }
 
-      .input__error {
-        font-weight: 400;
-        font-size: 1rem;
-        color: #ff5c58;
-      }
-
       .btn {
         background-color: var(--form_btn_bg);
       }
+    }
+
+    .input__error {
+      font-weight: 400;
+      font-size: 1rem;
+      color: #ff5c58;
     }
   }
 }
