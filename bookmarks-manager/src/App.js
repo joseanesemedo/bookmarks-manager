@@ -3,28 +3,21 @@ import "./App.css";
 import { DarkModeSwitch } from "react-toggle-dark-mode";
 
 function App() {
-  const [theme, setTheme] = useState("light");
-  const toggleTheme = () => {
-    if (theme === "light") {
-      setTheme("dark");
-    } else {
-      setTheme("light");
-    }
-  };
+  const [darkMode, setDarkMode] = useState(true);
+
   useEffect(() => {
-    document.body.className = theme;
-  }, [theme]);
+    document.body.classList.toggle("light-mode");
+  }, [darkMode]);
 
   return (
-    <div className={`App ${theme}`}>
-      {/* <button onClick={toggleTheme}>Toggle Theme</button> */}
-
+    <div>
       <DarkModeSwitch
         // style={{ height: "40px" }}
-        checked={theme}
-        onClick={toggleTheme}
+        checked={darkMode}
+        onClick={() => setDarkMode(!darkMode)}
         size={30}
         sunColor={"#eab308"}
+        moonColor={"#fff"}
       />
       <h1>Hello, world!</h1>
     </div>
