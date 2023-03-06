@@ -28,8 +28,12 @@ function App() {
 
   return (
     <div className="App">
-      <Header setDarkMode={setDarkMode} darkMode={darkMode} />
       <BrowserRouter>
+        <Header
+          setDarkMode={setDarkMode}
+          darkMode={darkMode}
+          session={session}
+        />
         <Routes>
           <Route exact path={"/signup"} element={<SignUp />} />
           <Route

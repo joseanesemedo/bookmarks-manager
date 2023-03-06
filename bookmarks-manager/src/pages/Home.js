@@ -2,13 +2,10 @@ import React, { useEffect, useState } from "react";
 import "./Home.scss";
 import TagsFilter from "../components/TagsFilter";
 import supabase from "../supabase";
-import { useNavigate } from "react-router-dom";
 import BookmarksList from "../components/BookmarksList";
 import Loading from "../components/Loading";
 
 const Home = ({ session }) => {
-  let navigate = useNavigate();
-
   const [tags, setTags] = useState([]);
   const [bookmarks, setBookmarks] = useState([]);
   const [currentCategory, setCurrentCategory] = useState("all");
@@ -52,11 +49,6 @@ const Home = ({ session }) => {
     getBookmarks();
   }, [session, currentCategory]);
 
-  async function handleLogout() {
-    await supabase.auth.signOut();
-    navigate("/");
-  }
-
   return (
     <main className="main">
       <TagsFilter
@@ -66,8 +58,7 @@ const Home = ({ session }) => {
         setCurrentCategory={setCurrentCategory}
       />
       <div>
-        <h2>Welcome back, {session.user.user_metadata.username}</h2>
-        <button onClick={handleLogout}>Logout</button>
+        {/* <h2>Welcome back, {session.user.user_metadata.username}</h2> */}
         {isLoading ? (
           <Loading />
         ) : (
