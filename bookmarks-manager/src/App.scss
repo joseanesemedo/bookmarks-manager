@@ -41,6 +41,10 @@ body {
   background-attachment: fixed, fixed;
   background-repeat: no-repeat;
 
+  @include breakpoint-down(small) {
+    background-image: none;
+  }
+
   background-color: var(--bg);
   color: var(--text_color);
   font-family: "Poppins", sans-serif;
