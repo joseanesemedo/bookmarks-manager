@@ -116,6 +116,16 @@ ul {
   list-style: none;
 }
 
+::-webkit-scrollbar {
+  width: 0.6rem;
+  background: #6f7277;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #323335;
+  border-radius: 1.5rem;
+}
+
 //========================================================================================================
 
 .btn {
@@ -139,7 +149,7 @@ ul {
 }
 
 .main {
-  height: 80vh;
+  height: 85vh;
   display: grid;
   grid-template-columns: 16rem 1fr;
   gap: 3rem;

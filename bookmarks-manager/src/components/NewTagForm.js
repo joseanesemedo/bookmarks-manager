@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import supabase from "../supabase";
 import "./NewTagForm.scss";
 
-const NewTagForm = ({ session, setTags }) => {
+const NewTagForm = ({ session, setTags, setShowForm }) => {
   const [tagName, setTagName] = useState("");
   const [tagColor, setTagColor] = useState("#e66465");
   const [errors, setErrors] = useState({});
@@ -21,6 +21,7 @@ const NewTagForm = ({ session, setTags }) => {
         setTags((tags) => [newTag[0], ...tags]);
         setTagColor("#e66465");
         setTagName("");
+        setShowForm(false);
       }
     }
   }

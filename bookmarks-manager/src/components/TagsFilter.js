@@ -21,7 +21,13 @@ const TagsFilter = ({ session, tags, setTags }) => {
           </button>
         </li>
 
-        {showForm && <NewTagForm session={session} setTags={setTags} />}
+        {showForm && (
+          <NewTagForm
+            session={session}
+            setTags={setTags}
+            setShowForm={setShowForm}
+          />
+        )}
 
         {tags.map((tag) => (
           <li className="category" key={tag.id}>
