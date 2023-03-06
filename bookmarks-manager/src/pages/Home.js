@@ -10,7 +10,7 @@ const Home = ({ session }) => {
 
   const [tags, setTags] = useState([]);
   const [bookmarks, setBookmarks] = useState([]);
-  const [currentCategory, setCurrentCategory] = useState("all");
+  // const [currentCategory, setCurrentCategory] = useState("all");
 
   useEffect(() => {
     async function getTags() {
@@ -55,7 +55,7 @@ const Home = ({ session }) => {
       <div>
         <h2>Welcome back, {session.user.user_metadata.username}</h2>
         <button onClick={handleLogout}>Logout</button>
-        <BookmarksList bookmarks={bookmarks} />
+        <BookmarksList bookmarks={bookmarks} tags={tags} />
       </div>
     </main>
   );

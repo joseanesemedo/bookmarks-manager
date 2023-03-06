@@ -1,25 +1,27 @@
 import React from "react";
+import "./Bookmark.scss";
 
-const Bookmark = ({ bookmark }) => {
+const Bookmark = ({ bookmark, tags }) => {
   return (
     <li className="bookmark">
       <p>
+        {bookmark.text}
         <a
           className="source"
           href={bookmark.source}
           target="_blank"
           rel="noreferrer"
         >
-          (Source)
+          (Link)
         </a>
       </p>
       <span
         className="tag"
         style={{
-          backgroundColor: bookmark.color,
+          backgroundColor: tags.find((tag) => tag.name === bookmark.tag)?.color,
         }}
       >
-        {bookmark.text}
+        {bookmark.tag}
       </span>
     </li>
   );

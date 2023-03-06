@@ -1,0 +1,38 @@
+.bookmark {
+  font-size: 1.25rem;
+  line-height: 1.4;
+  background-color: var(--bookmark_bg);
+  margin-bottom: 1rem;
+  padding: 1rem 1.5rem;
+  letter-spacing: -1px;
+  border-radius: 1rem;
+
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+
+  .source {
+    text-decoration: none;
+    transition: color 0.2s;
+    margin-left: 0.75rem;
+
+    &:link,
+    &:visited {
+      color: #a8a29e;
+    }
+
+    &:hover,
+    &:active {
+      color: #3b82f6;
+    }
+  }
+
+  .tag {
+    text-transform: uppercase;
+    font-size: 0.875rem;
+    font-family: "Coiny", cursive;
+    padding: 0.1875rem 0.625rem 0 0.625rem;
+    border-radius: 5rem;
+    color: #fafaf9;
+  }
+}
