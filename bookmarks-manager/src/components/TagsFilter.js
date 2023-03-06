@@ -3,14 +3,19 @@ import "./TagsFilter.scss";
 
 import NewTagForm from "./NewTagForm";
 
-const TagsFilter = ({ session, tags, setTags }) => {
+const TagsFilter = ({ session, tags, setTags, setCurrentCategory }) => {
   const [showForm, setShowForm] = useState(false);
 
   return (
     <aside>
       <ul>
         <li className="category">
-          <button className="btn btn__tags">All</button>
+          <button
+            className="btn btn__tags"
+            onClick={() => setCurrentCategory("all")}
+          >
+            All
+          </button>
         </li>
         <li className="category">
           <button
@@ -34,6 +39,7 @@ const TagsFilter = ({ session, tags, setTags }) => {
             <button
               className="btn btn__tag"
               style={{ backgroundColor: tag.color }}
+              onClick={() => setCurrentCategory(tag.name)}
             >
               {tag.name}
             </button>
