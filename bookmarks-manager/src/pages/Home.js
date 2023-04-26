@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
-import "./Home.scss";
 import supabase from "../supabase";
+
+import "./Home.scss";
 import TagsFilter from "../components/TagsFilter";
 import BookmarksList from "../components/BookmarksList";
 import NewBookmarkForm from "../components/NewBookmarkForm";
