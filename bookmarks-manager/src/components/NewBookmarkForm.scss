@@ -1,0 +1,59 @@
+@use "../mixins" as m;
+
+.fact-form {
+  background-color: var(--fact_bg);
+  margin-bottom: 2.5rem;
+  padding: 1rem 3.5rem;
+  border-radius: 1rem;
+
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-direction: column;
+  align-items: stretch;
+
+  transition: all 0.5s;
+
+  @include m.breakpoint-down(small) {
+    padding: 1rem 2rem;
+  }
+
+  input {
+    &:first-child {
+      flex-grow: 1;
+    }
+  }
+
+  input,
+  textarea,
+  select {
+    width: auto;
+    background-color: var(--btn_bg);
+    border: none;
+    border-radius: 1rem;
+    padding: 1rem;
+    font-size: 18px;
+    color: var(--color);
+    font-family: inherit;
+
+    &::placeholder {
+      color: var(--placeholder_color);
+    }
+
+    &:focus {
+      border: 2px solid #db2777;
+      outline: none;
+    }
+  }
+
+  textarea {
+    resize: none;
+    // border-radius: 2rem;
+  }
+
+  span {
+    font-weight: 600;
+    font-size: 1.125rem;
+    margin-right: 1.125rem;
+  }
+}

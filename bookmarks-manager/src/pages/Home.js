@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./Home.scss";
-import TagsFilter from "../components/TagsFilter";
 import supabase from "../supabase";
+import TagsFilter from "../components/TagsFilter";
 import BookmarksList from "../components/BookmarksList";
 import NewBookmarkForm from "../components/NewBookmarkForm";
 import Loading from "../components/Loading";
@@ -11,7 +11,7 @@ const Home = ({ session }) => {
   const [bookmarks, setBookmarks] = useState([]);
   const [currentCategory, setCurrentCategory] = useState("all");
   const [isLoading, setIsLoading] = useState(false);
-  const [showForm, setShowForm] = useState(true);
+  const [showForm, setShowForm] = useState(false);
 
   useEffect(() => {
     async function getTags() {
@@ -70,6 +70,8 @@ const Home = ({ session }) => {
             </button>
             {showForm ? (
               <NewBookmarkForm
+                session={session}
+                tags={tags}
                 setBookmarks={setBookmarks}
                 setShowForm={setShowForm}
               />
