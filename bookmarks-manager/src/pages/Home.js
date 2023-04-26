@@ -3,6 +3,7 @@ import "./Home.scss";
 import TagsFilter from "../components/TagsFilter";
 import supabase from "../supabase";
 import BookmarksList from "../components/BookmarksList";
+import NewBookmarkForm from "../components/NewBookmarkForm";
 import Loading from "../components/Loading";
 
 const Home = ({ session }) => {
@@ -10,6 +11,7 @@ const Home = ({ session }) => {
   const [bookmarks, setBookmarks] = useState([]);
   const [currentCategory, setCurrentCategory] = useState("all");
   const [isLoading, setIsLoading] = useState(false);
+  const [showForm, setShowForm] = useState(true);
 
   useEffect(() => {
     async function getTags() {
@@ -50,22 +52,37 @@ const Home = ({ session }) => {
   }, [session, currentCategory]);
 
   return (
-    <main className="main">
-      <TagsFilter
-        session={session}
-        tags={tags}
-        setTags={setTags}
-        setCurrentCategory={setCurrentCategory}
-      />
-      <div>
-        {/* <h2>Welcome back, {session.user.user_metadata.username}</h2> */}
-        {isLoading ? (
-          <Loading />
-        ) : (
-          <BookmarksList bookmarks={bookmarks} tags={tags} />
-        )}
-      </div>
-    </main>
+    <>
+      <main className="main">
+        <TagsFilter
+          session={session}
+          tags={tags}
+          setTags={setTags}
+          setCurrentCategory={setCurrentCategory}
+        />
+        <div>
+          <div>
+            <button
+              className="btn btn-large btn-open"
+              onClick={() => setShowForm((show) => !show)}
+            >
+              {showForm ? "Close" : "Add new bookmark"}
+            </button>
+            {showForm ? (
+              <NewBookmarkForm
+                setBookmarks={setBookmarks}
+                setShowForm={setShowForm}
+              />
+            ) : null}
+          </div>
+          {isLoading ? (
+            <Loading />
+          ) : (
+            <BookmarksList bookmarks={bookmarks} tags={tags} />
+          )}
+        </div>
+      </main>
+    </>
   );
 };
 
